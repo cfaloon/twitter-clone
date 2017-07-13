@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-md-3">
+    <div class="feed-well well" id="profile-card">
+      <%= render 'users/avatar', { user: current_user } %>
+      <div><strong><%= current_user.name %></strong></div>
+      <div>@<%= current_user.username %></div>
+      <div>
+	<ul>
+	  <li><%= current_user.tweets.count %> Tweets</li>
+	  <li>Following <%= current_user.following.count %> user(s).</li>
+	</ul>
+      </div>
+    </div>
+
+    <div class="feed-well well" id="trends-card">
+      <h2>Trends</h2>
+    </div>
+  </div>
+  
+  <div class="col-md-6">
+    <% if @following_tweets.any? %>
+      <% @following_tweets.each do |tweet| %>
+        <%= render 'tweets/tweet_panel', { tweet: tweet } %>
+      <% end %>
+    <% else %>
+      <div class="panel">
+	<p>No tweets to show. Consider following another user or writing your own tweet!</p>
+      </div>
+    <% end %>
+  </div>
+
+
+  <div class="col-md-3">
+    <div class="feed-well well">
+      <h2>Who to follow</h2>
+      <ul>
+	<li>A celebrity</li>
+	<li>A politician</li>
+	<li>Your cat</li>
+      </ul>
+    </div>
+  </div>
+</div>
+  
+
+
+

@@ -1,0 +1,12 @@
+<div class="panel tweet">
+  <p>
+    <%= link_to show_user_path(tweet.user.username) do %>
+    <%= render "users/avatar", {user: tweet.user} %>
+    <strong><%= tweet.user.name %></strong> @<%= tweet.user.username %>
+    <% end %>
+    |
+    <%= time_ago_in_words(tweet.created_at) if (Time.now - tweet.created_at) < 1.day %>
+    <%= tweet.created_at.strftime('%b %d') if (Time.now - tweet.created_at) >= 1.day %>
+  </p>
+  <p><%= tweet.message.html_safe %></p>
+</div>
