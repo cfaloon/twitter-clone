@@ -11,4 +11,8 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
 
   serialize :following, Array
+
+  def followers
+    User.all.select{ |u| u.following.include? self.id }
+  end
 end

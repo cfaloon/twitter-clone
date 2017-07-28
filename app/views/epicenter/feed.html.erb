@@ -7,7 +7,13 @@
       <div>
 	<ul>
 	  <li><%= current_user.tweets.count %> Tweets</li>
-	  <li>Following <%= current_user.following.count %> user(s).</li>
+	  <%= link_to following_path(id: current_user.id) do %>
+	  <li>Following <%= pluralize current_user.following.count, 'user' %>.</li>
+	  <% end %>
+	  <%= link_to followers_path(id: current_user.id) do %>
+	  <li>Followed by <%= pluralize current_user.followers.count, 'user' %>.</li>
+	  <% end %>
+	  
 	</ul>
       </div>
     </div>
