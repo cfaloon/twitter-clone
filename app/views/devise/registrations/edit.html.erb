@@ -7,13 +7,21 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, class: "form-control" %>
   </div>
-  
+
   <div class="form-group">
     <%= f.text_field :name, placeholder: "Your Name", class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= f.text_field :username, placeholder: "Choose a @username", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.text_field :tag, placeholder: "Enter a tag", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.text_field :tag_color, as: :minicolors, class: "form-control" %>
   </div>
 
   <div class="form-group">
@@ -28,7 +36,7 @@
   <div class="form-group">
     <%= f.text_area :bio, placeholder: "Tell us about yourself...", class: "form-control" %>
   </div>
-  
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>

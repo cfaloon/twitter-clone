@@ -12,6 +12,11 @@
 //
 //= require rails-ujs
 //= require jquery
+//= require jquery.minicolors
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+  $('#user_tag_color').minicolors();
+});

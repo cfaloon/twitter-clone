@@ -32,6 +32,9 @@
 	    <li class="dropdown">
 	      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 		<%= render 'users/avatar', { user: current_user } %>
+		<% if current_user.tag %>
+		<%= tag.span current_user.tag, style: "color: ##{current_user.tag_color}" %>
+		<% end %>
 		@<%= current_user.username %> <span class="caret"></span></a>
 	      <ul class="dropdown-menu">
 		<li><%= link_to "Edit Profile", edit_user_registration_path %></li>
